@@ -445,6 +445,30 @@ body.editing [contenteditable]:focus{outline:none;box-shadow:0 0 0 2px var(--acc
   /* live Slack replies feed */
   .livewrap{display:flex;justify-content:center;margin-top:20px}
   .livevid{max-height:60vh;max-width:100%;width:auto;border-radius:14px;border:1px solid var(--border-light);background:#0f0f0f;box-shadow:0 26px 80px rgba(0,0,0,.6),0 0 0 1px rgba(232,98,42,.16)}
+  /* square testimonial video */
+  .sqvid{max-height:56vh;max-width:100%;width:auto;aspect-ratio:1/1;border-radius:16px;border:1px solid var(--border-light);background:#000;box-shadow:0 26px 80px rgba(0,0,0,.6),0 0 0 1px rgba(232,98,42,.16)}
+  /* breakthrough — Cialdini psychology */
+  .cialdini-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:26px;margin-top:24px;align-items:stretch}
+  .portrait-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:20px;box-shadow:0 14px 40px rgba(0,0,0,.4);display:flex;flex-direction:column}
+  .portrait{position:relative;width:100%;aspect-ratio:1/1.05;border-radius:16px;overflow:hidden;border:1px solid var(--border-light);background:radial-gradient(circle at 50% 32%,#211c18,#100f0e)}
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(.12) contrast(1.03)}
+  .portrait::before{content:'';position:absolute;inset:0;box-shadow:inset 0 -70px 60px -24px rgba(10,10,10,.75);pointer-events:none;z-index:2}
+  .portrait.noimg::after{content:'RC';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(48px,6vw,80px);font-weight:700;letter-spacing:3px;color:var(--accent);background:var(--tile)}
+  .portrait-card .pname{font-size:clamp(16px,1.65vw,21px);font-weight:700;color:#fff;margin-top:15px}
+  .portrait-card .ptitle{font-size:clamp(11px,1.05vw,13.5px);color:var(--text-muted);margin-top:5px;line-height:1.45}
+  .portrait-card .pfact{margin-top:13px;padding-top:13px;border-top:1px solid var(--border);font-size:clamp(11.5px,1.1vw,14px);color:var(--text);line-height:1.5}
+  .portrait-card .pfact b{color:var(--accent)}
+  .levers{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .lever{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:18px 19px;box-shadow:0 12px 34px rgba(0,0,0,.4)}
+  .lever .lh{display:flex;align-items:center;gap:11px;margin-bottom:7px}
+  .lever .lh .ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:var(--accent-dim);border:1px solid rgba(232,98,42,.28);color:var(--accent);flex-shrink:0}
+  .lever .lh .ic svg{width:21px;height:21px}
+  .lever h4{font-size:clamp(14px,1.4vw,18px)}
+  .lever p{font-size:clamp(11.5px,1.08vw,14px);color:var(--text-muted);line-height:1.48}
+  .lever.hero{grid-column:1 / -1;background:linear-gradient(135deg,rgba(232,98,42,.15),rgba(245,166,35,.04));border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 18px 50px rgba(232,98,42,.16)}
+  .lever.hero .ic{background:var(--grad);border-color:transparent;color:#0a0a0a}
+  .lever.hero p{color:var(--text)}
+  .lever .tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0a0a0a;background:var(--grad);padding:2px 9px;border-radius:100px;margin-left:9px;vertical-align:middle}
 </style>
 
 <div class="deck" id="deck">
@@ -553,8 +577,8 @@ body.editing [contenteditable]:focus{outline:none;box-shadow:0 0 0 2px var(--acc
     <div class="slide-inner">
       <div class="eyebrow">And yet</div>
       <h2>If cold outreach is dead — how do we book <em>hundreds of calls a month</em> with it?</h2>
-      <div class="videowrap">
-        <video src="compilation-video.mp4" controls preload="metadata" playsinline></video>
+      <div class="livewrap">
+        <video class="sqvid" src="assets/testimonials.mp4" controls preload="metadata" playsinline></video>
       </div>
       <p class="tiny" style="margin-top:14px">Watch the reactions — founders and operators who run this engine, in their own words. <span class="accent-t">Every one of them was a cold prospect first.</span></p>
     </div>
@@ -564,8 +588,38 @@ body.editing [contenteditable]:focus{outline:none;box-shadow:0 0 0 2px var(--acc
   <section class="slide">
     <div class="slide-inner">
       <div class="eyebrow">The breakthrough</div>
-      <h1 class="xl">It's not new tech.<br>It's <em>old psychology.</em></h1>
-      <p class="lead" style="margin-top:26px">The breakthrough isn't AI or a clever tool — it's human behaviour that's worked for decades. The same principles <b style="color:var(--text)">Dr. Robert Cialdini</b> made famous: <b style="color:var(--text)">reciprocity, authority, consistency.</b> Give someone something genuinely valuable first, and the instinct to reciprocate does the rest. We just built the system that delivers it at scale, in cold outreach — where almost nobody does.</p>
+      <h2>It's not new tech. It's <em>old psychology.</em></h2>
+      <p class="lead" style="margin-top:10px">The instinct we build on was documented decades ago — the same persuasion levers <b style="color:var(--text)">Dr. Robert Cialdini</b> made famous. We just engineered them into cold outreach, where almost nobody does.</p>
+      <div class="cialdini-grid">
+        <div class="portrait-card">
+          <div class="portrait"><img src="assets/cialdini.jpg" alt="Dr. Robert Cialdini" onerror="this.remove();this.closest('.portrait').classList.add('noimg')"></div>
+          <div class="pname">Dr. Robert Cialdini</div>
+          <div class="ptitle">Author of <em>Influence</em> — the foundational science of persuasion.</div>
+          <div class="pfact"><b>Reciprocity:</b> give someone something valuable first, and they feel a genuine pull to return the favour.</div>
+        </div>
+        <div class="levers">
+          <div class="lever hero">
+            <div class="lh"><span class="ic"><svg class="svgicon"><use href="#i-gift"/></svg></span><h4>Reciprocity<span class="tag">The one we build on</span></h4></div>
+            <p>Give before you ask. We send something <b style="color:#fff">genuinely valuable</b> — a real gift, not a pitch — so the reply feels earned, not demanded. This is the whole game.</p>
+          </div>
+          <div class="lever">
+            <div class="lh"><span class="ic"><svg class="svgicon"><use href="#i-shield"/></svg></span><h4>Authority</h4></div>
+            <p>Show you already understand their world. Relevance earns the right to their attention.</p>
+          </div>
+          <div class="lever">
+            <div class="lh"><span class="ic"><svg class="svgicon"><use href="#i-user"/></svg></span><h4>Social proof</h4></div>
+            <p>When peers they respect have already moved, saying yes feels safe — not risky.</p>
+          </div>
+          <div class="lever">
+            <div class="lh"><span class="ic"><svg class="svgicon"><use href="#i-check"/></svg></span><h4>Consistency</h4></div>
+            <p>A small yes today makes the next yes easy. Momentum, never pressure.</p>
+          </div>
+          <div class="lever">
+            <div class="lh"><span class="ic"><svg class="svgicon"><use href="#i-clock"/></svg></span><h4>Timing</h4></div>
+            <p>The right lever at the wrong moment is noise. We reach people when the problem is live.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
